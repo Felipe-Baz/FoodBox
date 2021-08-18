@@ -1,41 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>FoodBox</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
       body {
-        background: lightgray;
+        background: #e5e5e5;
+        font-family: "Bradley Hand", "cursive";
       }
 
       .topo {
         background: red;
         color: white;
         padding: 15px;
+        box-shadow: 0 0 10px 0 #bbbbbb;
         border-radius: 10px;
       }
 
       .produto {
         background: white;
         padding: 15px;
+        margin-left: 20px;
+        margin-top: 10px;
+        box-shadow: 0 0 10px 0 #bbbbbb;
         border-radius: 10px;
+        cursor: pointer;
+        border: 5px solid white;
       }
 
       h1 {
         margin: 0;
+        font-family: "Righteous";
+        font-weight: normal;
       }
 
       h2 {
         margin: 0;
         font-size: 18px;
+        font-weight: normal;
       }
 
       h3 {
         font-size: 30px;
         border-radius: 10px;
         margin-bottom: 10px;
+        font-family: "Righteous";
+        font-weight: normal;
       }
 
       h4 {
@@ -45,35 +65,143 @@
       }
 
       img {
-        width: 130px;
+        width: 90px;
         border-radius: 5px;
         float: right;
+        margin-left: 15px;
+      }
+
+      p {
+        margin: 15px 0 0 0;
+      }
+
+      .preco {
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .botao {
+        background: #0b940b;
+        text-align: center;
+        padding: 15px;
+        margin-top: 30px;
+        margin-bottom: 100px;
+        border-radius: 50px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        cursor: pointer;
       }
     </style>
   </head>
   <body>
+
     <div class="topo">
       <h1>FoodBox</h1>
       <h2>Monte seu box e receba em até 15 minutos !!!</h2>
     </div>
-    <h3>Primeiro, seu prato</h3>
 
-    <div class="produto">
+
+    <h3>Primeiro, seu prato</h3>
+    <div id="steak" class="produto" onclick="escolherSteak()">
       <img
         src="https://i.pinimg.com/originals/95/a6/88/95a688c0f5d0b3a11bb2901af1de60e6.jpg"
       />
       <h4>Chaliapin Steak Don</h4>
       <p>Um Chaliapin Steak, com o conceito de um donburi.</p>
-      <p><strong>R$ 25,90</strong></p>
+      <p class="preco">R$ 25,90</p>
     </div>
 
-    <div class="produto">
+    <div id="porco" class="produto" onclick="escolherPorco()">
       <img
         src="https://i1.wp.com/miniaturecusina.com/wp-content/uploads/2017/12/pork-roast-just-kidding.png?resize=630%2C504&ssl=1"
       />
       <h4>Porco Assado, Just kidding</h4>
       <p>Um pouco de batata e peças suinas, formando um assado "artificial".</p>
-      <p><strong>R$ 20,90</strong></p>
+      <p class="preco">R$ 20,90</p>
     </div>
+
+
+    <h3>Agora, sua bebida</h3>
+    <div id="monster" class="produto" onclick="escolherMonster()">
+      <img src="imagens/monster.jpg" />
+      <h4>Monster Gelado</h4>
+      <p>Tradicional, juice laranja, ultra, lo-carb, juice mango, absulutely, ultra, dragon tea. Vai na sorte.</p>
+      <p class="preco">R$ 5,90</p>
+    </div>
+
+    <div id="Pepsi" class="produto" onclick="escolherPepsi()">
+      <img src="imagens/pepsi_1.png" />
+      <h4>Pepsi</h4>
+      <p>Pepsi, Pepsi Black</p>
+      <p class="preco">R$ 3,90</p>
+    </div>
+
+
+    <h3>Por fim, sua sobremesa</h3>
+    <div id="Pudim" class="produto" onclick="escolherPudim()">
+      <img src="imagens/pudim.jpg" />
+      <h4>Pudim</h4>
+      <p>Um lindo, brilhante e seduzente pudim.</p>
+      <p class="preco">R$ 7,90</p>
+    </div>
+
+    <div id="Gelado" class="produto" onclick="escolherGelado()">
+      <img src="imagens/bacio.png" />
+      <h4>Gelato Maravilha!!</h4>
+      <p>Sabores a verificar disponibilidade.</p>
+      <p class="preco">R$ 6,90</p>
+    </div>
+
+
+    <div id="botao" class="botao" onclick="finalizarPedido()">
+      Finalizar pedido
+    </div>
+
+    <script>
+      let prato;
+      let bebida;
+      let sobremesa;
+      function escolherSteak() {
+        document.getElementById("steak").style.borderColor = "green";
+        document.getElementById("porco").style.borderColor = "white";
+        prato = "Chaliapin Steak Don";
+      }
+
+      function escolherPorco() {
+        document.getElementById("porco").style.borderColor = "green";
+        document.getElementById("steak").style.borderColor = "white";
+        prato = "Porco Assado, Just kidding";
+      }
+
+      function escolherMonster() {
+        document.getElementById("monster").style.borderColor = "green";
+        document.getElementById("Pepsi").style.borderColor = "white";
+        bebida = "Monster";
+      }
+
+      function escolherPepsi() {
+        document.getElementById("Pepsi").style.borderColor = "green";
+        document.getElementById("monster").style.borderColor = "white";
+        bebida = "Pepsi";
+      }
+
+      function escolherPudim() {
+        document.getElementById("Pudim").style.borderColor = "green";
+        document.getElementById("Gelado").style.borderColor = "white";
+        sobremesa = "Pudim";
+      }
+
+      function escolherGelado() {
+        document.getElementById("Gelado").style.borderColor = "green";
+        document.getElementById("Pudim").style.borderColor = "white";
+        sobremesa = "Gelato Maravilha";
+      }
+      
+      function finalizarPedido() {
+        alert("Os pedidos foram: \n Prato: " + prato + "\n Bebida: " + bebida + "\n Sobremesa: " + sobremesa);
+      }
+
+    </script>
   </body>
 </html>
