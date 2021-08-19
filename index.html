@@ -199,7 +199,8 @@
       }
       
       function finalizarPedido() {
-        alert("Os pedidos foram: \n Prato: " + prato + "\n Bebida: " + bebida + "\n Sobremesa: " + sobremesa);
+        msg = "Os+pedidos+foram:+Prato:+" + prato + "+,+"+"Bebida:+" + bebida + "+e+" + "Sobremesa:+" + sobremesa+".";
+        window.open("https://api.whatsapp.com/send/?phone=%2b5511991451150&text="+ msg +"&app_absent=0")
       }
 
     </script>
